@@ -1,369 +1,174 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Federação Desportiva dos Surdos de Mato Grosso do Sul – FDSMS</title>
-    <meta name="description" content="A Federação Desportiva dos Surdos de Mato Grosso do Sul (FDSMS) organiza e desenvolve o esporte para surdos no MS.">
-    <!-- Google Fonts for modern typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="img/logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Brand Colors inferred from FDSMS elements */
-            --primary-blue: #3296d4; 
-            --primary-dark: #1b6896;
-            --accent-green: #299e53; 
-            --accent-yellow: #f4c51e; 
-            
-            /* Neutral Colors */
-            --text-dark: #1a202c;
-            --text-gray: #4a5568;
-            --bg-color: #40acdd;
-            --white: #ffffff;
-            
-            /* UI Elements */
-            --border-radius: 16px;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>FDSMS - Federação Desportiva dos Surdos de Mato Grosso do Sul</title>
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 100% 0%, rgba(50, 150, 212, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, rgba(41, 158, 83, 0.06) 0%, transparent 50%);
-            color: var(--text-dark);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1rem;
-        }
+<meta name="description" content="Federação Desportiva dos Surdos de Mato Grosso do Sul (FDSMS). Organização sem fins lucrativos que promove o esporte para surdos.">
+<meta name="keywords" content="FDSMS, surdos, esporte, Mato Grosso do Sul, federação">
+<meta name="author" content="FDSMS">
 
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            overflow: hidden;
-            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-            transform: translateY(30px);
-            position: relative;
-        }
+<link rel="icon" href="img/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-        /* Top decorative gradient bar */
-        .container::before {
-            content: '';
-            display: block;
-            height: 8px;
-            width: 100%;
-            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-green) 50%, var(--accent-yellow) 100%);
-        }
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #1a202c;
+}
 
-        .content-wrapper {
-            padding: 3.5rem 3rem;
-        }
+header {
+    background: #1b6896;
+    color: white;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
 
-        /* Logo Placeholder area */
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-        }
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
-        .logo-placeholder {
-            width: 160px;
-            height: 160px;
-            background-color: #f8fafc;
-            border: 2px dashed #cbd5e0;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: #a0aec0;
-            transition: all 0.3s ease;
-            position: relative;
-            cursor: default;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
 
-        .logo-placeholder:hover {
-            border-color: var(--primary-blue);
-            background-color: #ebf4ff;
-            color: var(--primary-blue);
-            transform: scale(1.02);
-        }
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
 
-        .logo-placeholder span {
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 0.5rem;
-            text-align: center;
-            padding: 0 1rem;
-        }
+section {
+    margin-bottom: 40px;
+}
 
-        .logo-placeholder svg {
-            width: 40px;
-            height: 40px;
-            opacity: 0.8;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo-placeholder:hover svg {
-            transform: translateY(-2px);
-        }
+h1, h2 {
+    color: #1b6896;
+}
 
-        /* When an image replaces the placeholder, it will use this class */
-        .logo-img {
-            max-width: 100%;
-            max-height: 160px;
-            object-fit: contain;
-            display: none; 
-        }
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
+footer {
+    background: #1b6896;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
 
-        h1 {
-            color: var(--primary-dark);
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            margin-bottom: 0.75rem;
-            line-height: 1.2;
-        }
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .info-card {
-            background-color: white;
-            border: 1px solid #e2e8f0;
-            border-left: 5px solid var(--primary-blue);
-            padding: 1.75rem;
-            border-radius: 8px;
-            color: var(--text-gray);
-            font-size: 1.15rem;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        }
-
-        .info-card strong {
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        .notice-box {
-            background-color: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 8px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.25rem;
-            transition: background-color 0.2s;
-        }
-
-        .notice-box:hover {
-            background-color: #dcfce7;
-        }
-
-        .notice-icon {
-            color: var(--accent-green);
-            flex-shrink: 0;
-            background: white;
-            border-radius: 50%;
-            padding: 0.25rem;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .notice-text {
-            color: #166534;
-            font-size: 1.05rem;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .notice-text a {
-            color: #15803d;
-            font-weight: 600;
-            text-decoration: none;
-            border-bottom: 2px solid rgba(21, 128, 61, 0.2);
-            transition: border-color 0.2s, color 0.2s;
-        }
-
-        .notice-text a:hover {
-            border-color: #15803d;
-            color: #166534;
-        }
-
-        footer {
-            margin-top: 3.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e2e8f0;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .cnpj {
-            display: inline-flex;
-            align-items: center;
-            background-color: #f1f5f9;
-            padding: 0.6rem 1.25rem;
-            border-radius: 9999px;
-            font-size: 0.95rem;
-            color: var(--text-gray);
-            font-family: 'Inter', monospace;
-            letter-spacing: 0.025em;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s;
-        }
-
-        .cnpj:hover {
-            background-color: #e2e8f0;
-            color: var(--text-dark);
-        }
-        
-        .cnpj-label {
-            font-weight: 600;
-            margin-right: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .content-wrapper {
-                padding: 2.5rem 2rem;
-            }
-            h1 {
-                font-size: 1.75rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 1rem;
-            }
-            
-            .content-wrapper {
-                padding: 2rem 1.25rem;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .info-card {
-                font-size: 1rem;
-                padding: 1.25rem;
-            }
-            
-            .notice-box {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 1rem;
-            }
-            
-            .logo-placeholder {
-                width: 130px;
-                height: 130px;
-            }
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FG1YDGDS2V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FG1YDGDS2V');
-</script>
+.logo img {
+    max-width: 120px;
+}
+</style>
 </head>
+
 <body>
 
-    <main class="container">
-        <div class="content-wrapper">
-            <!-- Espaço reservado para Logo -->
-            <div class="logo-container">
-                <!-- Para incluir a logo, substitua a div .logo-placeholder pela tag img apontando para o arquivo correto -->
-                <!-- Exemplo: <img src="logo.png" alt="Logo FDSMS" class="logo-img" style="display: block;"> -->
-                <img src="img/logo.png" alt="Logo FDSMS" class="logo-img" style="display: block;">
-            </div>
+<header>
+<nav>
+<a href="#inicio">Início</a>
+<a href="#sobre">Sobre</a>
+<a href="#missao">Missão</a>
+<a href="#dominio">Domínio</a>
+<a href="#contato">Contato</a>
+</nav>
+</header>
 
-            <!-- Header -->
-            <header>
-                <h1>Federação Desportiva dos Surdos de Mato Grosso do Sul – FDSMS</h1>
-            </header>
+<div class="container">
 
-            <!-- Textos -->
-            <div class="main-content">
-                <div class="info-card">
-                    A <strong>Federação Desportiva dos Surdos de Mato Grosso do Sul (FDSMS)</strong> é a entidade responsável pela organização e desenvolvimento do esporte para surdos no estado de Mato Grosso do Sul.
-                </div>
+<!-- INÍCIO -->
+<section id="inicio">
+<div class="logo">
+<img src="img/logo.png" alt="Logo FDSMS">
+</div>
 
-                <div class="notice-box">
-                    <div class="notice-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <p class="notice-text">
-                        Informamos que o domínio <strong><a href="https://fdsms.org.br" target="_blank" rel="noopener noreferrer">fdsms.org.br</a></strong> pertence oficialmente à Federação Desportiva dos Surdos de Mato Grosso do Sul (FDSMS) e será utilizado como seu site institucional e para comunicação oficial por meio de e-mails corporativos.
-                    </p>
-                </div>
-            </div>
+<h1>Federação Desportiva dos Surdos de Mato Grosso do Sul – FDSMS</h1>
 
-            <!-- CNPJ -->
-            <footer>
-                <div class="cnpj" aria-label="CNPJ da Instituição">
-                    <span class="cnpj-label">CNPJ:</span> 51.684.912/0001-60
-                </div>
-            </footer>
+<div class="card">
+A Federação Desportiva dos Surdos de Mato Grosso do Sul (FDSMS) é a entidade responsável pela organização e desenvolvimento do esporte para surdos no estado de Mato Grosso do Sul.
+</div>
+</section>
 
-        </div>
-    </main>
+<!-- SOBRE -->
+<section id="sobre">
+<h2>Sobre Nós</h2>
+<div class="card">
+A Federação Desportiva dos Surdos de Mato Grosso do Sul (FDSMS) é uma entidade de direito privado, sem fins lucrativos, fundada em 19 de maio de 2023, com sede em Campo Grande/MS.
+
+A FDSMS tem como objetivo promover o esporte para pessoas surdas, incentivando inclusão social, acessibilidade e participação em competições esportivas.
+
+A entidade é apolítica, apartidária e sem distinção de raça, religião ou gênero.
+</div>
+</section>
+
+<!-- MISSÃO -->
+<section id="missao">
+<h2>Missão, Visão e Valores</h2>
+<div class="card">
+<strong>Missão:</strong><br>
+Promover o esporte para pessoas surdas com inclusão e acessibilidade.<br><br>
+
+<strong>Visão:</strong><br>
+Ser referência no desenvolvimento do esporte para surdos no estado.<br><br>
+
+<strong>Valores:</strong><br>
+Inclusão, ética, respeito, transparência e responsabilidade social.
+</div>
+</section>
+
+<!-- DOMÍNIO -->
+<section id="dominio">
+<h2>Domínio Oficial</h2>
+<div class="card">
+Informamos que o domínio <strong>fdsms.org.br</strong> pertence oficialmente à Federação Desportiva dos Surdos de Mato Grosso do Sul (FDSMS).
+
+Este domínio será utilizado como site institucional e comunicação oficial da entidade, incluindo e-mails corporativos.
+</div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+<h2>Contato</h2>
+<div class="card">
+<strong>Endereço:</strong><br>
+Rua Abílio Siqueira, nº 261<br>
+Bairro Nova Lima<br>
+Campo Grande/MS – CEP: 79017-652<br><br>
+
+<strong>Email:</strong><br>
+contato@fdsms.org.br<br><br>
+
+<strong>CNPJ:</strong><br>
+51.684.912/0001-60
+</div>
+</section>
+
+</div>
+
+<footer>
+<p>Federação Desportiva dos Surdos de Mato Grosso do Sul</p>
+<p>CNPJ: 51.684.912/0001-60</p>
+<p>Email: contato@fdsms.org.br</p>
+<p>© 2026 - Todos os direitos reservados</p>
+</footer>
 
 </body>
 </html>
